@@ -1,0 +1,135 @@
+/* ---- Font import ---- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
+
+/* ---- Css resets ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ---- Costum properties ---- */
+:root {
+  /* colors */
+  --clr-primary-400: hsl(259, 100%, 65%);
+  --clr-secondary-400: hsl(0, 100%, 67%);
+  --clr-neutral-900: hsl(0, 0%, 100%);
+  --clr-neutral-700: hsl(0, 0%, 94%);
+  --clr-neutral-400: hsl(0, 0%, 86%);
+  --clr-neutral-300: hsl(0, 1%, 44%);
+  --clr-neutral-100: hsl(0, 0%, 8%);
+
+  /* font family */
+  --ff-main: "Poppins";
+  --ff-backup: sans-serif;
+
+  /* font weights */
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+
+/* ---- General styling ---- */
+body {
+  font-family: var(--ff-main), var(--ff-backup);
+  background-color: var(--clr-neutral-700);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+hr {
+  z-index: 1;
+  width: 140%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--clr-neutral-700);
+}
+.container {
+  background-color: var(--clr-neutral-900);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+  border-radius: 20px;
+  gap: 6rem;
+  border-bottom-right-radius: 140px;
+}
+.fields {
+  display: flex;
+  gap: 1rem;
+}
+.field p {
+  color: var(--clr-neutral-300);
+  font-weight: var(--fw-bold);
+  font-size: 11px;
+  margin-bottom: .4rem;
+  letter-spacing: 3px;
+}
+.field input {
+  height: 40px;
+  width: 100px;
+  padding: 25px 17px;
+  font-weight: var(--fw-extra-bold);
+  font-size: 26px;
+  border: 1px solid var(--clr-neutral-400);
+  border-radius: 7px;
+}
+.field input:focus,
+.field input:hover
+{
+  border: 1px solid var(--clr-primary-400);
+}
+.age p {
+  font-weight: var(--fw-extra-bold);
+  font-size: 70px;
+}
+.age span {
+  color: var(--clr-primary-400);
+}
+.btn-container {
+  margin-top: 70px;
+}
+button {
+  z-index: 2;
+  background-color: var(--clr-neutral-100);
+  border: none;
+  border-radius: 50%;
+  padding: 1.4rem;
+  cursor: pointer;
+}
+button img {
+  width: 35px;
+}
