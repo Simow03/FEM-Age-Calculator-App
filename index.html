@@ -12,19 +12,22 @@
       <div>
         <div class="fields">
           <div class="field">
-            <p>DAY</p>
-            <input type="text">
+            <label for="day">DAY</label>
+            <input type="text" placeholder="DD" id="day" required autocomplete="off">
+            <p class="error day"></p>
           </div>
           <div class="field">
-            <p>MONTH</p>
-            <input type="text">
+            <label for="month">MONTH</label>
+            <input type="text" placeholder="MM" id="month" required autocomplete="off">
+            <p class="error month"></p>
           </div>
           <div class="field">
-            <p>YEAR</p>
-            <input type="text">
+            <label for="year">YEAR</label>
+            <input type="text" placeholder="YYYY" id="year" required autocomplete="off">
+            <p class="error year"><i></i></p>
           </div>
         </div>
-        <hr>
+        <!-- <hr> -->
         <div class="age">
           <p><i><span>--</span> years</i></p>
           <p><i><span>--</span> months</i></p>

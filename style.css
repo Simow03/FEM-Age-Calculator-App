@@ -26,6 +26,9 @@ svg {
   display: block;
   max-width: 100%;
 }
+input {
+  all: unset;
+}
 input,
 button,
 textarea,
@@ -71,13 +74,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-hr {
+/* hr {
   z-index: 1;
   width: 140%;
   margin-top: 2rem;
   margin-bottom: 1rem;
   border: 1px solid var(--clr-neutral-700);
-}
+} */
 .container {
   background-color: var(--clr-neutral-900);
   display: flex;
@@ -91,7 +94,8 @@ hr {
   display: flex;
   gap: 1rem;
 }
-.field p {
+.field label {
+  display: block;
   color: var(--clr-neutral-300);
   font-weight: var(--fw-bold);
   font-size: 11px;
@@ -99,28 +103,40 @@ hr {
   letter-spacing: 3px;
 }
 .field input {
-  height: 40px;
+  height: 50px;
   width: 100px;
-  padding: 25px 17px;
+  padding: 5px 19px;
   font-weight: var(--fw-extra-bold);
   font-size: 26px;
   border: 1px solid var(--clr-neutral-400);
   border-radius: 7px;
 }
-.field input:focus,
-.field input:hover
+.field input:hover,
+.field input:focus
 {
   border: 1px solid var(--clr-primary-400);
 }
+.field input::placeholder{
+  opacity: .7;
+}
+.field p {
+  font-weight: var(--fw-regular);
+  font-size: 13px;
+  margin-top: 7px;
+}
+.age {
+  margin-top: 3rem;
+}
 .age p {
   font-weight: var(--fw-extra-bold);
-  font-size: 70px;
+  font-size: 80px;
+  line-height: 1.2;
 }
 .age span {
   color: var(--clr-primary-400);
 }
 .btn-container {
-  margin-top: 70px;
+  margin-top: 17%;
 }
 button {
   z-index: 2;
@@ -130,6 +146,13 @@ button {
   padding: 1.4rem;
   cursor: pointer;
 }
+button:hover,
+button:active {
+  background-color: var(--clr-primary-400);
+}
 button img {
   width: 35px;
+}
+.error {
+  color: var(--clr-secondary-400);
 }
