@@ -2,46 +2,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 /* ---- Css resets ---- */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 * {
   margin: 0;
 }
-html,
-body {
+html, body {
   height: 100%;
 }
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-img,
-picture,
-video,
-canvas,
-svg {
+img, svg {
   display: block;
   max-width: 100%;
 }
 input {
   all: unset;
 }
-input,
-button,
-textarea,
-select {
+input, button, textarea, select {
   font: inherit;
 }
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, h1 {
   overflow-wrap: break-word;
 }
 
@@ -74,13 +58,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* hr {
-  z-index: 1;
-  width: 140%;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--clr-neutral-700);
-} */
 .container {
   background-color: var(--clr-neutral-900);
   display: flex;
@@ -93,16 +70,18 @@ body {
 .fields {
   display: flex;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 .field label {
   display: block;
   color: var(--clr-neutral-300);
   font-weight: var(--fw-bold);
   font-size: 11px;
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
   letter-spacing: 3px;
 }
 .field input {
+  color: var(--clr-neutral-100) !important;
   height: 50px;
   width: 100px;
   padding: 5px 19px;
@@ -110,14 +89,14 @@ body {
   font-size: 26px;
   border: 1px solid var(--clr-neutral-400);
   border-radius: 7px;
+  caret-color: var(--clr-primary-400);
 }
 .field input:hover,
-.field input:focus
-{
+.field input:focus {
   border: 1px solid var(--clr-primary-400);
 }
-.field input::placeholder{
-  opacity: .7;
+.field input::placeholder {
+  opacity: 0.7;
 }
 .field p {
   font-weight: var(--fw-regular);
@@ -125,7 +104,7 @@ body {
   margin-top: 7px;
 }
 .age {
-  margin-top: 3rem;
+  margin-top: 4.5rem;
 }
 .age p {
   font-weight: var(--fw-extra-bold);
@@ -136,10 +115,10 @@ body {
   color: var(--clr-primary-400);
 }
 .btn-container {
-  margin-top: 17%;
+  margin-top: 13%;
 }
 button {
-  z-index: 2;
+  position: relative;
   background-color: var(--clr-neutral-100);
   border: none;
   border-radius: 50%;
@@ -153,6 +132,18 @@ button:active {
 button img {
   width: 35px;
 }
+button::before {
+  content: "";
+  position: absolute;
+  width: 540px;
+  height: 2px;
+  right: 80px;
+  bottom: 50%;
+  top: 50%;
+  background-color: var(--clr-neutral-400);
+  opacity: 0.7;
+}
 .error {
-  color: var(--clr-secondary-400);
+  color: var(--clr-secondary-400) !important;
+  border-color: var(--clr-secondary-400) !important;
 }
