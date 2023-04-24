@@ -42,15 +42,24 @@ submitButton.onclick = () => {
     //retrun the inner html to default :
     document.getElementById("number-of-days").innerHTML = "--";
   } else {
-    dayErrorMessage.innerHTML = "";
-    dayField.classList.remove("error");
-    dayLabel.classList.remove("error");
+    //exception for February (only 28 days) :
+    if (monthField.value == 2 && dayField.value > 28) {
+      dayErrorMessage.innerHTML = "Day does not exsist ";
+      dayField.classList.add("error");
+      dayLabel.classList.add("error");
+      //add margin to the button when the error text is displayed
+      document.querySelector(".btn-container").style.marginTop = "18%";
+    } else {
+      dayErrorMessage.innerHTML = "";
+      dayField.classList.remove("error");
+      dayLabel.classList.remove("error");
 
-    //calculate the number of days to display :
-    let bornDay = dayField.value;
-    numberOfDays = currentDay - bornDay;
-    if (numberOfDays < 0) numberOfDays = 31 + currentDay - bornDay;
-    document.getElementById("number-of-days").innerHTML = numberOfDays;
+      //calculate the number of days to display :
+      let bornDay = dayField.value;
+      numberOfDays = currentDay - bornDay;
+      if (numberOfDays < 0) numberOfDays = 31 + currentDay - bornDay;
+      document.getElementById("number-of-days").innerHTML = numberOfDays;
+    }
   }
 
   //month error message :
@@ -71,15 +80,20 @@ submitButton.onclick = () => {
     //retrun the inner html to default :
     document.getElementById("number-of-months").innerHTML = "--";
   } else {
-    monthErrorMessage.innerHTML = "";
-    monthField.classList.remove("error");
-    monthLabel.classList.remove("error");
+    if (currentMonth == monthField.value && currentDay < dayField.value) {
+      numberOfMonths = 12 - 1;
+      document.getElementById("number-of-months").innerHTML = numberOfMonths;
+    } else {
+      monthErrorMessage.innerHTML = "";
+      monthField.classList.remove("error");
+      monthLabel.classList.remove("error");
 
-    //calculate the number of months to display :
-    let bornMonth = monthField.value;
-    numberOfMonths = currentMonth - bornMonth;
-    if (numberOfMonths < 0) numberOfMonths = 12 + currentMonth - bornMonth;
-    document.getElementById("number-of-months").innerHTML = numberOfMonths;
+      //calculate the number of months to display :
+      let bornMonth = monthField.value;
+      numberOfMonths = currentMonth - bornMonth;
+      if (numberOfMonths < 0) numberOfMonths = 12 + currentMonth - bornMonth;
+      document.getElementById("number-of-months").innerHTML = numberOfMonths;
+    }
   }
 
   //year error message :
@@ -100,14 +114,29 @@ submitButton.onclick = () => {
     //retrun the inner html to default :
     document.getElementById("number-of-years").innerHTML = "--";
   } else {
-    yearErrorMessage.innerHTML = "";
-    yearField.classList.remove("error");
-    yearLabel.classList.remove("error");
+    if (
+      currentMonth < monthField.value ||
+      (currentMonth == monthField.value && currentDay < dayField.value)
+    ) {
+      yearErrorMessage.innerHTML = "";
+      yearField.classList.remove("error");
+      yearLabel.classList.remove("error");
 
-    //calculate the number of years to display :
-    let bornYear = yearField.value;
-    numberOfYears = currentYear - bornYear;
-    document.getElementById("number-of-years").innerHTML = numberOfYears;
+      //calculate the number of years to display :
+      let bornYear = yearField.value;
+      //minus one year because the birth month doesn't attend yet :
+      numberOfYears = currentYear - bornYear - 1;
+      document.getElementById("number-of-years").innerHTML = numberOfYears;
+    } else {
+      yearErrorMessage.innerHTML = "";
+      yearField.classList.remove("error");
+      yearLabel.classList.remove("error");
+
+      //calculate the number of years to display :
+      let bornYear = yearField.value;
+      numberOfYears = currentYear - bornYear;
+      document.getElementById("number-of-years").innerHTML = numberOfYears;
+    }
   }
 
   //return margin to default when the error text is empty
@@ -117,5 +146,16 @@ submitButton.onclick = () => {
     yearErrorMessage.innerHTML == ""
   ) {
     document.querySelector(".btn-container").style.marginTop = "13%";
+  }
+
+  //return age numbers to default when the error text is displayed
+  if (
+    dayErrorMessage.innerHTML != "" ||
+    monthErrorMessage.innerHTML != "" ||
+    yearErrorMessage.innerHTML != ""
+  ) {
+    document.getElementById("number-of-years").innerHTML = "--";
+    document.getElementById("number-of-months").innerHTML = "--";
+    document.getElementById("number-of-days").innerHTML = "--";
   }
 };
