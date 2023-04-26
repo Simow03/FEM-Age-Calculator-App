@@ -42,8 +42,16 @@ submitButton.onclick = () => {
     //retrun the inner html to default :
     document.getElementById("number-of-days").innerHTML = "--";
   } else {
+    //exceptional case for 30 days months :
+    if ((monthField.value == 4, 6, 9, 11 && dayField.value == 31)) {
+      dayErrorMessage.innerHTML = "Day does not exsist ";
+      dayField.classList.add("error");
+      dayLabel.classList.add("error");
+      //add margin to the button when the error text is displayed
+      document.querySelector(".btn-container").style.marginTop = "18%";
+    }
     //exception for February (only 28 days) :
-    if (monthField.value == 2 && dayField.value > 28) {
+    else if (monthField.value == 2 && dayField.value > 28) {
       dayErrorMessage.innerHTML = "Day does not exsist ";
       dayField.classList.add("error");
       dayLabel.classList.add("error");
