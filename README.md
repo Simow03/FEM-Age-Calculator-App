@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [My Age Calculator App](hhttps://simowagecalculatorapp.netlify.app/)
+- Live Site URL: [My Age Calculator App](https://simowagecalculatorapp.netlify.app/)
 
 ## My process
 
