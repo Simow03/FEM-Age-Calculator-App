@@ -33,7 +33,7 @@ submitButton.onclick = () => {
     document.querySelector(".btn-container").style.marginTop = "18%";
     //retrun the inner html to default :
     document.getElementById("number-of-days").innerHTML = "--";
-  } else if (dayField.value > 31) {
+  } else if (dayField.value > 31 || dayField.value < 1) {
     dayErrorMessage.innerHTML = "Must be a valid day";
     dayField.classList.add("error");
     dayLabel.classList.add("error");
@@ -79,7 +79,7 @@ submitButton.onclick = () => {
     document.querySelector(".btn-container").style.marginTop = "18%";
     //retrun the inner html to default :
     document.getElementById("number-of-months").innerHTML = "--";
-  } else if (monthField.value > 12) {
+  } else if (monthField.value > 12 || monthField.value < 1) {
     monthErrorMessage.innerHTML = "Must be a valid month";
     monthField.classList.add("error");
     monthLabel.classList.add("error");
